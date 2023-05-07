@@ -1,11 +1,18 @@
-FROM iran-registry.itsmj.ir/python:3.9-slim-buster
+FROM iran-registry.itsmj.ir/python:3.8-slim-buster
 
+# Install PostgreSQL client tools
+RUN apt-get update && \
+    apt-get install -y postgresql-client && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
 WORKDIR /app
 
-COPY requirements.txt .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
+# Copy the application files
 COPY . .
 
-CMD [ "python", "./app.py" ]
+# Install the Python dependencies
+RUN pip install -r requirements.txt
+
+# Run the backup script
+CMD ["python", "app.py"]

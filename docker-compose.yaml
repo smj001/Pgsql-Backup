@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   pg_backup:
-    build: .
+    image: iran-registry.itsmj.ir/pgsql-backup:v1
     environment:
       - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}

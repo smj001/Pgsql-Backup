@@ -38,7 +38,12 @@ for row in rows:
     db_name = row[0]
     backup_file = db_name + f"{file_date}.backup"
     backup_path = os.path.join(os.getcwd(), backup_file)
-    backup_command = f"pg_dump -Fc -h {db_host} -p {db_port} -U {db_user} -d {db_name} -f {backup_path}"
+
+    # Set the PGPASSWORD environment variable to the password value
+    os.environ['PGPASSWORD'] = db_pass
+
+    backup_command = f"pg_dump -Fc -w -h {db_host} -p {db_port} -U {db_user} -f {backup_path} {db_name}"
+
     subprocess.run(backup_command, shell=True)
 
     # Upload the backup file to S3

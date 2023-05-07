@@ -2,7 +2,7 @@ FROM iran-registry.itsmj.ir/python:3.8-slim-buster
 
 # Install PostgreSQL client tools
 RUN apt-get update && \
-    apt-get install -y postgresql-client && \
+    apt-get install -y postgresql-client-15 && \
     rm -rf /var/lib/apt/lists/*
 
 # Set the working directory

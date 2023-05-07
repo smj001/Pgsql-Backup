@@ -40,7 +40,7 @@ for row in rows:
     backup_path = os.path.join(os.getcwd(), backup_file)
 
     # Set the PGPASSWORD environment variable to the password value
-    os.environ['PGPASSWORD'] = db_pass
+    os.environ['PGPASSWORD'] = db_password
 
     backup_command = f"pg_dump -Fc -w -h {db_host} -p {db_port} -U {db_user} -f {backup_path} {db_name}"
 

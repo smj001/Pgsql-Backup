@@ -25,7 +25,7 @@ day = jdatetime.datetime.now().day
 month = jdatetime.datetime.now().month
 year = jdatetime.datetime.now().year
 hour = jdatetime.datetime.now().hour
-file_date = f"{year}-{month}-{day}-{hour}"
+file_date = f"-{year}-{month}-{day}-{hour}"
 
 # Connect to the PostgreSQL database and retrieve a list of database names
 conn = psycopg2.connect(host=db_host, port=db_port, user=db_user, password=db_password)

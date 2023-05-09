@@ -13,4 +13,4 @@ COPY . .
 RUN pip install -r requirements.txt
 
 # Run the backup script
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
